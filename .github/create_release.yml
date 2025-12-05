@@ -1,0 +1,53 @@
+name: GitHub Release on Tag Push
+
+on:
+  push:
+    tags:
+      # This ensures the workflow only runs when a new tag matching the
+      # pattern (e.g., v1.0.0 or 1.2.3) is pushed.
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  create_github_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to create the release and upload assets
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+        
+      - name: ⚙️ Set environment variables
+        # Extract the tag name (e.g., 1.2.0)
+        id: tag_name
+        run: echo "TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+        
+      - name: 📦 Find Release Asset
+        id: find_asset
+        # Look for the ZIP file in the 'release/' directory that matches the tag name
+        run: |
+          ASSET_FILE=$(ls release/ScriptFlip\ ShortQuts-${{ env.TAG_NAME }}.zip 2>/dev/null || true)
+          if [ -z "$ASSET_FILE" ]; then
+            echo "::error::Release ZIP asset not found for tag ${{ env.TAG_NAME }}!"
+            exit 1
+          fi
+          echo "ASSET_PATH=$ASSET_FILE" >> $GITHUB_ENV
+
+      - name: ⬆️ Create GitHub Release and Upload Asset
+        # This uses the GitHub CLI built into the runner environment
+        uses: softprops/action-gh-release@v2
+        with:
+          # The tag name is used as the release version
+          tag_name: ${{ env.TAG_NAME }}
+          # The name shown on the release page
+          name: Version ${{ env.TAG_NAME }}
+          # Use a generic note; you might want to replace this with a changelog file.
+          body: "Automated release for ShortQuts version ${{ env.TAG_NAME }}. See appcast for details."
+          # This is the crucial step: upload the ZIP file found in the previous step
+          files: ${{ env.ASSET_PATH }}
+          # Your main script already pushes a tag, so we don't need to draft or generate notes
+          draft: false
+          prerelease: false
+        env:
+          # Required for the gh-release action to interact with GitHub
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
