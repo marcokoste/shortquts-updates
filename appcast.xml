@@ -24,6 +24,36 @@
 
 <!-- __UPDATE_MARKER__ -->
     <item>
+        <title>Version 1.2.1</title>
+        <sparkle:releaseNotesLink>
+            https://raw.githubusercontent.com/marcokoste/shortquts-updates/main/releases/1.2.1.html
+        </sparkle:releaseNotesLink>
+        <pubDate>Fri, 05 Dec 2025 15:25:23 -0800</pubDate>
+        <enclosure
+            url="https://github.com/marcokoste/shortquts-updates/releases/download/1.2.1/ScriptFlip ShortQuts-1.2.1.zip"
+            sparkle:version="1.2.1"
+            sparkle:shortVersionString="1.2.1"
+            length="9940333"
+            type="application/octet-stream" />
+        <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+    </item>
+
+    <item>
+        <title>Version 1.1.0</title>
+        <sparkle:releaseNotesLink>
+            https://raw.githubusercontent.com/marcokoste/shortquts-updates/main/releases/1.1.0.html
+        </sparkle:releaseNotesLink>
+        <pubDate>Fri, 05 Dec 2025 15:22:35 -0800</pubDate>
+        <enclosure
+            url="https://github.com/marcokoste/shortquts-updates/releases/download/1.1.0/ScriptFlip ShortQuts-1.1.0.zip"
+            sparkle:version="1.1.0"
+            sparkle:shortVersionString="1.1.0"
+            length="9940024"
+            type="application/octet-stream" />
+        <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+    </item>
+
+    <item>
         <title>Version 1.2.0</title>
         <sparkle:releaseNotesLink>
             https://raw.githubusercontent.com/marcokoste/shortquts-updates/main/releases/1.2.0.html
