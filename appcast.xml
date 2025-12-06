@@ -52,20 +52,6 @@
         <language>en</language>
 
     <item>
-        <title>Version 1.5.0</title>
-        <sparkle:releaseNotesLink>
-            https://github.com/marcokoste/shortquts/releases/tag/1.5.0
-        </sparkle:releaseNotesLink>
-        <pubDate>Fri,  5 Dec 2025 12:46:26 -0800</pubDate>
-        <enclosure
-            url="https://github.com/marcokoste/shortquts-updates/releases/download/1.5.0/ScriptFlip-ShortQuts-1.5.0.zip"
-            sparkle:version="1.5.0"
-            sparkle:shortVersionString="1.5.0"
-            length="9941910"
-            type="application/octet-stream"
-        />
-        <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-    </item>
 
 <!-- __UPDATE_MARKER__ -->
     <item>
